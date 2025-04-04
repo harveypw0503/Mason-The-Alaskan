@@ -22,6 +22,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            touch-action: manipulation; /* Improves touch responsiveness */
         }
         h1 {
             font-size: 3em;
@@ -31,7 +32,8 @@
         }
         #game-container {
             position: relative;
-            width: 800px;
+            width: 90vw;
+            max-width: 800px;
             margin: 0 auto;
             background: var(--accent);
             border-radius: 15px;
@@ -39,10 +41,10 @@
             padding: 20px;
         }
         canvas {
+            width: 100%;
+            height: auto;
             border: 3px solid var(--secondary-bg);
             border-radius: 10px;
-            background: url('Empty hill.png') no-repeat center center;
-            background-size: cover;
         }
         #pause-overlay {
             display: none;
@@ -54,34 +56,48 @@
             background: rgba(0, 0, 0, 0.5);
             color: var(--accent);
             font-size: 2em;
+            display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1;
         }
-        #pause-button {
-            position: absolute;
-            top: 30px;
-            right: 30px;
+        button {
             padding: 10px 20px;
             font-size: 1em;
+            margin: 5px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
             background-color: var(--secondary-bg);
             color: var(--accent);
             transition: background-color 0.3s;
-            z-index: 2;
         }
-        #pause-button:hover { background-color: #1A3C34; }
+        button:hover { background-color: #1A3C34; }
+        #controls { margin-top: 10px; }
+        #touch-feedback {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 215, 0, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            display: none;
+            z-index: 0;
+        }
     </style>
 </head>
 <body>
     <h1>Mason The Alaskan: Snow Machine</h1>
     <div id="game-container">
         <p>Total Score: <span id="total-score">0</span> | Stage Score: <span id="stage-score">0</span></p>
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-        <button id="pause-button">Pause</button>
+        <canvas id="gameCanvas"></canvas>
+        <div id="controls">
+            <button id="left-button">Left</button>
+            <button id="right-button">Right</button>
+            <button id="pause-button">Pause</button>
+        </div>
         <div id="pause-overlay">PAUSED</div>
+        <div id="touch-feedback"></div>
     </div>
     <script src="snowmachine.js"></script>
 </body>
