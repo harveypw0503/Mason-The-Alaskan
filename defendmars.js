@@ -7,9 +7,9 @@ const totalScoreDisplay = document.getElementById("total-score");
 const images = {
     player: new Image(), enemy: new Image(), harderEnemy: new Image()
 };
-images.player.src = "./Assets/Purple spaceship.png";
-images.enemy.src = "./Assets/enemy.png";
-images.harderEnemy.src = "./Assets/darker enemy.png";
+images.player.src = "Purple spaceship.png";
+images.enemy.src = "enemy.png";
+images.harderEnemy.src = "darker enemy.png";
 
 const player = { x: canvas.width / 2, y: canvas.height - 100, width: 50, height: 70, speed: 8, cooldown: 0 };
 const lasers = [], enemies = [];

@@ -7,10 +7,10 @@ const totalScoreDisplay = document.getElementById("total-score");
 
 const images = {};
 const assets = {
-    backgroundImg: "./Assets/Empty hill.png", playerImg: "./Assets/Mason on snow machine.png",
-    playerLeftImg: "./Assets/leftwards.png", playerRightImg: "./Assets/rightwards.png",
-    treeImg: "./Assets/Tree 1.png", stumpImg: "./Assets/Stump 1.png",
-    crashObstacleImg: "./Assets/crash.png", crashMasonImg: "./Assets/Crash Mason.png"
+    backgroundImg: "Empty hill.png", playerImg: "Mason on snow machine.png",
+    playerLeftImg: "leftwards.png", playerRightImg: "rightwards.png",
+    treeImg: "Tree 1.png", stumpImg: "Stump 1.png",
+    crashObstacleImg: "crash.png", crashMasonImg: "Crash Mason.png"
 };
 for (let key in assets) { images[key] = new Image(); images[key].src = assets[key]; }
 

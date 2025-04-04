@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mason The Alaskan - Snow Machine</title>
+    <title>Mason The Alaskan</title>
     <style>
         :root {
             --primary-bg: #E6F0FA;
@@ -30,7 +30,6 @@
             margin: 20px 0;
         }
         #game-container {
-            position: relative;
             width: 800px;
             margin: 0 auto;
             background: var(--accent);
@@ -38,51 +37,42 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             padding: 20px;
         }
-        canvas {
-            border: 3px solid var(--secondary-bg);
-            border-radius: 10px;
-            background: url('Empty hill.png') no-repeat center center;
-            background-size: cover;
-        }
-        #pause-overlay {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            color: var(--accent);
-            font-size: 2em;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-        }
-        #pause-button {
-            position: absolute;
-            top: 30px;
-            right: 30px;
+        button {
             padding: 10px 20px;
-            font-size: 1em;
+            font-size: 1.2em;
+            margin: 10px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
             background-color: var(--secondary-bg);
             color: var(--accent);
             transition: background-color 0.3s;
-            z-index: 2;
         }
-        #pause-button:hover { background-color: #1A3C34; }
+        button:hover {
+            background-color: #1A3C34;
+        }
     </style>
 </head>
 <body>
-    <h1>Mason The Alaskan: Snow Machine</h1>
+    <h1>Mason The Alaskan</h1>
     <div id="game-container">
-        <p>Total Score: <span id="total-score">0</span> | Stage Score: <span id="stage-score">0</span></p>
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-        <button id="pause-button">Pause</button>
-        <div id="pause-overlay">PAUSED</div>
+        <h2>Welcome to the Adventure!</h2>
+        <p>Total Score: <span id="total-score">0</span></p>
+        <button onclick="startGame()">Start Game</button>
     </div>
-    <script src="snowmachine.js"></script>
+    <script>
+        let totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
+        document.getElementById('total-score').textContent = totalScore;
+
+        function startGame() {
+            localStorage.setItem('totalScore', '0');
+            window.location.href = 'armwrestling.html';
+        }
+
+        // Reset on refresh
+        window.onbeforeunload = () => {
+            localStorage.clear();
+        };
+    </script>
 </body>
 </html>
