@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mason The Alaskan - Arm Wrestling</title>
+    <style>
+        :root {
+            --primary-bg: #E6F0FA;
+            --secondary-bg: #2C5F2D;
+            --accent: #FFFFFF;
+            --text: #1A3C34;
+            --highlight: #FFD700;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, var(--primary-bg), #A9CCE3);
+            color: var(--text);
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: var(--secondary-bg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+        #game-container {
+            position: relative;
+            width: 800px;
+            margin: 0 auto;
+            background: var(--accent);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+        .bar {
+            position: relative;
+            width: 80%;
+            height: 20px;
+            background: linear-gradient(to right, #FF4040 25%, #FFFF99 25%, #FFFF99 37.5%, #00FF00 37.5%, #00FF00 62.5%, #FFFF99 62.5%, #FFFF99 75%, #FF4040 75%);
+            border-radius: 10px;
+            margin: 20px auto;
+            border: 1px solid var(--text);
+        }
+        #marker {
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background-color: #1E90FF;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: -10px;
+            transition: transform 0.02s linear;
+        }
+        #result { font-size: 1.2em; margin: 15px 0; }
+        #outcome-image { width: 60%; max-width: 250px; height: auto; margin: 10px 0; border-radius: 5px; }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--secondary-bg);
+            color: var(--accent);
+            transition: background-color 0.3s;
+        }
+        button:hover { background-color: #1A3C34; }
+        #pause-overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--accent);
+            font-size: 2em;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        #pause-button { position: relative; z-index: 2; }
+    </style>
+</head>
+<body>
+    <h1>Mason vs. Bear: Arm Wrestling</h1>
+    <div id="game-container">
+        <p>Total Score: <span id="total-score">0</span> | Stage Score: <span id="stage-score">0</span></p>
+        <img id="outcome-image" src="./Assets/neutral.png" alt="Game Outcome">
+        <div class="bar" id="bar"><div id="marker"></div></div>
+        <p id="result">Press Lock In when the marker is in the green zone!</p>
+        <button id="action-button">Lock In</button>
+        <button id="pause-button">Pause</button>
+        <div id="pause-overlay">PAUSED</div>
+    </div>
+    <script src="scripts/armwrestling.js"></script>
+</body>
+</html>

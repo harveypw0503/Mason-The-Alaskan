@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mason The Alaskan</title>
+    <style>
+        :root {
+            --primary-bg: #E6F0FA;
+            --secondary-bg: #2C5F2D;
+            --accent: #FFFFFF;
+            --text: #1A3C34;
+            --highlight: #FFD700;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, var(--primary-bg), #A9CCE3);
+            color: var(--text);
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: var(--secondary-bg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+        #game-container {
+            width: 800px;
+            margin: 0 auto;
+            background: var(--accent);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--secondary-bg);
+            color: var(--accent);
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1A3C34;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mason The Alaskan</h1>
+    <div id="game-container">
+        <h2>Welcome to the Adventure!</h2>
+        <p>Total Score: <span id="total-score">0</span></p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <script>
+        let totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
+        document.getElementById('total-score').textContent = totalScore;
+
+        function startGame() {
+            localStorage.setItem('totalScore', '0');
+            window.location.href = 'armwrestling.html';
+        }
+
+        // Reset on refresh
+        window.onbeforeunload = () => {
+            localStorage.clear();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mason The Alaskan - Defend Mars</title>
+    <style>
+        :root {
+            --primary-bg: #E6F0FA;
+            --secondary-bg: #2C5F2D;
+            --accent: #FFFFFF;
+            --text: #1A3C34;
+            --highlight: #FFD700;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, var(--primary-bg), #A9CCE3);
+            color: var(--text);
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 3em;
+            color: var(--secondary-bg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+        #game-container {
+            position: relative;
+            width: 800px;
+            margin: 0 auto;
+            background: var(--accent);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+        canvas {
+            border: 3px solid var(--secondary-bg);
+            border-radius: 10px;
+            background: linear-gradient(to bottom, #1E90FF, #104E8B, #4B0082, #8B4513, #FF4500, #8B0000, #FF0000);
+        }
+        #pause-overlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--accent);
+            font-size: 2em;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mason The Alaskan: Defend Mars</h1>
+    <div id="game-container">
+        <p>Total Score: <span id="total-score">0</span> | Stage Score: <span id="stage-score">0</span></p>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="pause-overlay">PAUSED</div>
+    </div>
+    <script src="scripts/defendmars.js"></script>
+</body>
+</html>
