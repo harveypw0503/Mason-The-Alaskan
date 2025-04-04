@@ -10,7 +10,7 @@ const totalScoreDisplay = document.getElementById("total-score");
 
 let markerPosition = 0, speed = 1.5, direction = 1, isPlaying = false, isPaused = false, score = 0;
 const maxScore = 69000;
-const images = { neutral: "./Assets/neutral.png", win: "./Assets/win.png", lose: "./Assets/lose.png" };
+const images = { neutral: "neutral.png", win: "win.png", lose: "lose.png" };
 let totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
 totalScoreDisplay.textContent = totalScore;
 
